@@ -114,8 +114,7 @@ class RIDNet(nn.Module):
         
         self.init_weights()
 
-    def forward(self, x):
-        
+    def forward(self, x):        
         x1 = self.conv1(x) # feature extraction module
         x1 = self.relu1(x1)
         
