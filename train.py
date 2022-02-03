@@ -98,7 +98,7 @@ def train():
     
     model = RIDNet(in_channels=1, out_channels=1, num_feautres=128)
     model.to(device)
-    summary(model,(1, 512,512),batch_size=BATCH_SIZE)
+    summary(model,(1, 512, 512), batch_size=BATCH_SIZE)
 
 
     criterion = L1_Loss().to(device)
