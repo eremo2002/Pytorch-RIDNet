@@ -1,4 +1,4 @@
-# Pytorch RIDNet Implementation
+# Pytorch RIDNet Implementation (unofficial code)
 
 ## [[Paper]](https://openaccess.thecvf.com/content_ICCV_2019/papers/Anwar_Real_Image_Denoising_With_Feature_Attention_ICCV_2019_paper.pdf)
 ## Real Image Denoising with Feature Attention (ICCV, 2019)
