@@ -24,10 +24,7 @@ class Denoising_dataset(torch.utils.data.Dataset):
         origin_img = copy.deepcopy(clean)
         
         noisy = self.gaussian_noise(clean)
-
-        clean = cv2.resize(clean, (512, 512), interpolation=cv2.INTER_LINEAR)
-        noisy = cv2.resize(noisy, (512, 512), interpolation=cv2.INTER_LINEAR)
-
+        
         data = {'noisy': noisy, 'clean': clean}
 
         if self.transform:
