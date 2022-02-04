@@ -2,25 +2,25 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class ChannelAttention(nn.Module):
     def __init__(self, in_channels, out_channels, reduction=16):
         super(ChannelAttention, self).__init__()
-
+        
+        self.gap = nn.AdaptiveAvgPool2d(1)
         self.conv1 =nn.Conv2d(in_channels, out_channels//reduction, 1, 1, 0)
         self.relu1 = nn.ReLU()
         self.conv2 = nn.Conv2d(out_channels//reduction, in_channels, 1, 1, 0)
         self.sigmoid2 = nn.Sigmoid()
 
     def forward(self, x):
-        x_origin = x
-        x = self.conv1(x)
-        x = self.relu1(x)
-        x = self.conv2(x)
-        x = self.sigmoid2(x)
-        x = x * x_origin
-        return x
-
+        gap = self.gap(x)
+        x_out = self.conv1(gap)
+        x_out = self.relu1(x_out)
+        x_out = self.conv2(x_out)
+        x_out = self.sigmoid2(x_out)
+        x_out = x_out * x        
+        return x_out
+    
 
 class EAM(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, padding=1, dilation=1, reduciton=4):
