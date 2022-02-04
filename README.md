@@ -27,6 +27,15 @@ against 19 state-of-the-art algorithms demonstrate the superiority of our RIDNet
 ```
 > python train.py --epochs 100 --batch_size 16
 ```
+<br/>
+
+## Result
+### Ground Truth / Noised image / Denoised image  
+![image](https://user-images.githubusercontent.com/33386742/152548263-d466771c-ecc6-43c2-bea3-ec4eb59ad95f.png)
+![image](https://user-images.githubusercontent.com/33386742/152549070-dd95cdc6-e77a-4bbb-a8f5-59b9220275e3.png)
+![image](https://user-images.githubusercontent.com/33386742/152549416-c3f1bff2-61bb-4f46-b149-f166ee2bf550.png)
+![image](https://user-images.githubusercontent.com/33386742/152549553-07bbe83a-d5b0-493a-ae07-227f2e0134dc.png)
+<br/>
 
 ## Reference
 * [Official code](https://github.com/saeed-anwar/RIDNet)
