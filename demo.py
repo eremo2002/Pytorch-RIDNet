@@ -1,27 +1,19 @@
-from cmath import inf
 import os
-import argparse
-from random import shuffle
-from re import T
-from tqdm import tqdm
 import torch
-import torchvision
-import torch.nn as nn
-import torch.optim as optim
-
+import cv2
+import numpy as np
 
 from model.RIDNet import RIDNet
 from util.dataset import *
 
 
 def gaussian_noise(img, noise_level=[5, 10, 15, 20, 25, 30]):
-        sigma = np.random.choice(noise_level)
-        gaussian_noise = np.random.normal(0, sigma, (img.shape[0], img.shape[1]))        
+    sigma = np.random.choice(noise_level)
+    gaussian_noise = np.random.normal(0, sigma, (img.shape[0], img.shape[1]))        
         
-        noisy_img = img + gaussian_noise        
-        noisy_img = np.clip(noisy_img, 0, 255).astype(np.uint8)
-        
-        return noisy_img
+    noisy_img = img + gaussian_noise        
+    noisy_img = np.clip(noisy_img, 0, 255).astype(np.uint8)        
+    return noisy_img
 
 
 def demo():   
