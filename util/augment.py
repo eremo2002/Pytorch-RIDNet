@@ -122,7 +122,7 @@ class Shift_X(object):
                 shifted_noisy[:, self.dx:] = noisy[:, :w-self.dx]
                 shifted_clean[:, self.dx:] = clean[:, :w-self.dx]
             else: # shift left                
-                shifted_noisy[:, :w+self.dx] = clean[:, (-self.dx):]
+                shifted_noisy[:, :w+self.dx] = noisy[:, (-self.dx):]
                 shifted_clean[:, :w+self.dx] = clean[:, (-self.dx):]
 
             data = {'noisy': shifted_noisy, 'clean': shifted_clean}            
